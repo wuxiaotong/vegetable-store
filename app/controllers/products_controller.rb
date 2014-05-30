@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :init
   # GET /products
   # GET /products.json
+  def init
+    @cart = current_cart
+  end
   def index
     @products = Product.all
   end

@@ -1,8 +1,18 @@
 Depot::Application.routes.draw do
+  
+  resources :orders
+
+  resources :categories do
+    member do
+      get :products
+    end
+  end
+  get '/categories/:category_id/products/:id', to: 'store#product_info'
+  
   resources :line_items
 
   resources :carts
-
+  
   get "store/index"
   resources :products
 
@@ -12,6 +22,7 @@ Depot::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: 'store#index', as:'store'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

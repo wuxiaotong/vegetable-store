@@ -1,6 +1,12 @@
 class StoreController < ApplicationController
   def index
-  	@products = Product.order(:title)
   	@cart = current_cart
+  	@categories = Category.all
+  	@product = Product.order(:title)
+  end
+  def product_info
+  	@cart = current_cart
+  	@line_item = LineItem.new
+    @product = Product.find(params[:id])
   end
 end
