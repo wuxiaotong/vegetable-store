@@ -78,14 +78,13 @@
 .depot_form {
 	fieldset {
 	  background: #efe;
-	}
 	legend {
 	  color: #dfd;
 	  background: #141;
 	  font-family: sans-serif;
 	  padding: 0.2em 1em;
 	}
-}
+    }
 form {
 	label {
 	  width: 5em;
@@ -96,7 +95,7 @@ form {
 	  diaplay: block;
 	}
 	select, textarea, input {
-	  margin-left: 4em;
+	  margin-left: 0.5em;
 	}
 	.submit {
 	  margin-left: 4em;
@@ -104,4 +103,5 @@ form {
 	br {
 	  display: none
 	}
+}
 }
