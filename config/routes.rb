@@ -7,7 +7,7 @@ Depot::Application.routes.draw do
     post 'login' => :create 
     delete 'logout' => :destroy
   end
-  
+  scope '(:locale)' do
   resources :users
 
   resources :orders
@@ -34,7 +34,7 @@ Depot::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: 'store#index', as:'store'
-  
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

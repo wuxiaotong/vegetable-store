@@ -4,7 +4,7 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   def login_as(user)
-  	session[:user_id] = users(user).user_id
+  	session[:user_id] = users(user).id
   end
 
   def logout
