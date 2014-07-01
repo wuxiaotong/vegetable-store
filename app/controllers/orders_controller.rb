@@ -1,10 +1,17 @@
 class OrdersController < ApplicationController
+  skip_before_filter :authorize, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.paginate page: params[:page], order: 'created_at desc',
+    per_page: 10
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json {render json: @orders }
+    end
   end
 
   # GET /orders/1
@@ -15,11 +22,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-    # @cart = current_cart
-    # if @cart.line_items.empty?
-      # redirect_to store_url, notice: "Your cart is empty."
-      # return
-    # end
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to store_url, notice: "Your cart is empty."
+      return
+    end
   end
 
   # GET /orders/1/edit
@@ -29,18 +36,17 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-    # @order.add_line_items_from_cart(current_cart)
+    params.permit!  
+    @order = Order.new(params[:order])
+    @order.add_line_items_from_cart(current_cart)
     respond_to do |format|
       if @order.save
-        # Cart.destroy(session[:cart_id])
-        # session[:cart_id] = nil
-        # format.html {redirect_to store_url, notice: 'Thank you for your order.' }
-        # format.json {render json: @order, status: :created, location: @order }
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @order }
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+        format.html {redirect_to store_url, notice: 'Thank you for your order.' }
+        format.json {render json: @order, status: :created, location: @order }
       else
-        # @cart = current_cart
+        @cart = current_cart
         format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
@@ -48,7 +54,7 @@ class OrdersController < ApplicationController
   end
 
   # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
+  # PATCH/PUT /orders/1.json                                                                                            
   def update
     respond_to do |format|
       if @order.update(order_params)
