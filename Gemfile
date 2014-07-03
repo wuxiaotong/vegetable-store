@@ -3,9 +3,8 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
 end
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
+group :development do
+  gem 'sqlite3'
 end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
