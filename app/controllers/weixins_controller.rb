@@ -1,7 +1,9 @@
 class WeixinsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :check_weixin_legality
-  def new
+
+  def show
+    render :text => params[:echostr]
   end
 
   def create
@@ -10,9 +12,6 @@ class WeixinsController < ApplicationController
     end
   end
 
-  def show
-  	render :text => params[:echostr]
-  end
 
   private
   def check_weixin_legality
