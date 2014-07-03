@@ -12,7 +12,8 @@ Depot::Application.routes.draw do
   resources :users
 
   resources :orders
-
+  
+  resource :weixin
   resources :categories do
     member do
       get :products
