@@ -1,11 +1,5 @@
-source 'http://rubygem.org'
-group :development do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
-end
+source 'http://ruby.taobao.org'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
