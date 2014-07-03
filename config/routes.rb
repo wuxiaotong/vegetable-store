@@ -1,5 +1,8 @@
 Depot::Application.routes.draw do
   
+  get "weixins/new"
+  get "weixins/create"
+  get "weixins/show"
   get 'admin' => 'admin#index'
   
   controller :sessions do
