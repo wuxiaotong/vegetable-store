@@ -1,11 +1,5 @@
 source 'http://ruby.taobao.org'
-group :production do
-  gem 'rails_12factor'
-  gem 'pg'
-end
-group :development do
-  gem 'sqlite3'
-end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -36,6 +30,15 @@ gem 'jbuilder', '~> 1.2'
 gem 'will_paginate', '~>3.0'
 
 gem 'bcrypt-ruby','~> 3.1.5'
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
