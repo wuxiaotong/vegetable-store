@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+ img{
+ overflow:hidden;
+ }
 #banner {
   background: #9c9;
   padding: 10px;

@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { head :no_content}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,7 +71,7 @@ class ProductsController < ApplicationController
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image_url, :price)
+      params.require(:product).permit(:title, :description, :image_url, :price, :quantity)
     end
      
     # Use callbacks to share common setup or constraints between actions.
