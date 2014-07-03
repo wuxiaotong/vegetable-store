@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'http://rubygem.org'
 group :development do
   gem 'sqlite3'
 end
