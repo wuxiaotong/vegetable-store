@@ -1,5 +1,5 @@
 class StoreController < ApplicationController
-  skip_before_filter :authorize
+   skip_before_filter :authorize
   def index
   	@cart = current_cart
   	@categories = Category.all
