@@ -375,6 +375,8 @@ Product.create(title: '燕塘牛奶',
       </p>},
   image_url: '代购牛奶系列/燕塘牛奶.jpg',
   price: 20)
+
+Category.delete_all
 Category.create(id: 1, title: '沙拉菜系列')
 Category.create(id: 2, title: '增城菜系列')
 Category.create(id: 3, title: '从化农产品系列')
