@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    params.permit! 
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -76,6 +77,7 @@ class ProductsController < ApplicationController
      
     # Use callbacks to share common setup or constraints between actions.
     def set_product
+      params.permit! 
       @product = Product.find(params[:id])
     end
 end

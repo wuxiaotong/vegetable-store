@@ -21,6 +21,7 @@ Category.create(id: 1,title: '佛冈沙拉菜系列')
 Category.create(id: 2,title: '增城中国菜系列')
 Category.create(id: 3,title: '增城瓜果菜系列')
 Category.create(id: 4,title: '蔬菜配料系列')
+
 Product.delete_all
 
 Product.create(title: '混合沙拉菜',
@@ -380,7 +381,3 @@ Product.create(title: '燕塘牛奶',
       </p>},
   image_url: '代购牛奶系列/燕塘牛奶.jpg',
   price: 20)
-Category.create(id: 1, title: '沙拉菜系列')
-Category.create(id: 2, title: '增城菜系列')
-Category.create(id: 3, title: '从化农产品系列')
-Category.create(id: 4, title: '瓜果菜系列')
