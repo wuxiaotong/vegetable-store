@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'will_paginate', '~>3.0'
 
 gem 'bcrypt','~> 3.1.5'
-
+gem 'actionpack-xml_parser'
 group :development do
   gem 'sqlite3'
 end
