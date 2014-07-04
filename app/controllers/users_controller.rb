@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    params.permit!  
+    params.permit!
     @user = User.new(params[:user])
 
     respond_to do |format|
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    params.permit! 
+    params.permit!
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -63,14 +63,14 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.feind(params[:id])
+    @user = User.find(params[:id])
     begin
       @user.destroy
       flash[:notice] = "User #{@user.name} deleted"
     rescue Exeption => e
       flash[:notice] = e.message
     end
-    
+
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }

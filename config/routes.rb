@@ -1,7 +1,6 @@
 Depot::Application.routes.draw do
 
   get 'admin' => 'admin#index'
-  resource :weixin
 
   controller :sessions do
     get 'login' => :new
@@ -12,13 +11,15 @@ Depot::Application.routes.draw do
   resources :users
 
   resources :orders
-  
+
+  resource :weixin
+
   resources :categories do
     member do
       get :products
+    end
+  end
 
-  end
-  end
   get '/categories/:category_id/products/:id', to: 'store#product_info'
 
   resources :line_items
