@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  # It will auto generate weixin token and secret
+  include WeixinRailsMiddleware::AutoGenerateWeixinTokenSecretKey
   validates :name, presence: true, uniqueness: true
   has_secure_password
   after_destroy :ensure_an_admin_remains
