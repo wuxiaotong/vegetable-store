@@ -1,5 +1,5 @@
 Depot::Application.routes.draw do
-
+ mount WeixinRailsMiddleware::Engine, at: "/"
   get 'admin' => 'admin#index'
 
   controller :sessions do
