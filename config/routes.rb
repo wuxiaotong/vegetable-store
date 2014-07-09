@@ -25,12 +25,11 @@ Depot::Application.routes.draw do
   resources :line_items
 
   resources :carts
-
+  mount ChinaCity::Engine => '/china_city'
   get "store/index"
   resources :products do
     get :who_bought, on: :member
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -86,3 +85,6 @@ Depot::Application.routes.draw do
   #     resources :products
   #   end
 end
+# ChinaCity::Engine.routes.draw do
+#   root to: 'order#index'
+#   get ':id', to: 'order#show'

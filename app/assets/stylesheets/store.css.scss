@@ -1,6 +1,7 @@
 // Place all the styles related to the store controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .store {
   h1 {
     margin: 0;
@@ -15,13 +16,12 @@
     margin-top: 1em;
     border-bottom: 1px dotted #77d;
     min-height: 100px;
-  }
-  #columns {
-    img {
-    width: 80px;
+     img {
+    width:300px;
+    height:300px;
     margin-right: 5px;
     margin-bottom: 5px;
-    position: absolute;
+    
     }
   }
   
@@ -32,7 +32,7 @@
     margin-left: 100px;
     margin-top: 0;
     margin-bottom: 2px;
-    color: #227;
+    color: #282;
   }
 
   p,div.price_line {
@@ -45,8 +45,42 @@
   }
 
   .price {
-    color: #44a;
+    color: #282;
     font-weight: bold;
     margin-right: 3em;
+  }
+}
+input{
+  background-color: #EEFFBB;
+  color: #282;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 5%;
+  font-size: 3em;
+  border: 1% solid;
+  border-radius: 25px;
+}
+.change{
+  input{
+   background-color: #EEFFBB;
+  color: #282;
+  text-align: center;
+  font-size: 1em;
+  border: 1% solid;
+  border-radius: 10px;
+  }
+}
+.change2{
+  input{
+   background-color: #EEFFBB;
+  color: #282;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1%;
+  font-size: 1em;
+  border: 1% solid;
+  border-radius: 10px;
   }
 }

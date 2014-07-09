@@ -10,24 +10,35 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "姓名" %><br />
     <%= f.text_field :name, size: 40 %>
   </div>
+   <div class = "city-group">
+    <select class = "city-select">
+      <option> --省份--</option>
+      <%= options_for_select(ChinaCity.list)%>
+     </select>
+     <select class = "city-select">
+      <option> --城市--</option>
+  
+     </select>
+
+     <select class = "city-select">
+      <option> --地区--</option>
+    
+    </select>
+</div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :"详细地址" %><br />
     <%= f.text_area :address, rows: 3, cols: 40%>
-  </div>
-    <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, size: 40%>
-  </div>
+
   <div class="field">
-    <%= f.label :pay_type %><br />
-    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method'%>
+    <%= f.label "支付方式" %><br />
+    <%= f.select :pay_type, Order::PAYMENT_TYPES, prompt: '选择一种支付方式'%>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order'%>
+    <%= f.submit '提交订单'%>
   </div>
 <% end %>

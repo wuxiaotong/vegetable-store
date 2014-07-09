@@ -12,7 +12,12 @@ class WeixinsController < ApplicationController
     end
   end
 
-
+ # request = Nestful.post menu_api_url, :params => menu_json_str
+ # def menu_json_str
+ #    s = {:button => [
+ #      {:type => "click", :name => "Menu1", :key => "dfafd"},
+ #    ]}.as_json
+ # end
   private
   def check_weixin_legality
     array = [Rails.configuration.weixin_token, params[:timestamp], params[:nonce]].sort

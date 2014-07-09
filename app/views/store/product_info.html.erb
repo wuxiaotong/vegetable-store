@@ -4,18 +4,22 @@
   	<h3><%= @product.title %></h3>
   	<%= sanitize(@product.description) %>
   	<div class = "price_line">
-  	<span class="price"><%= number_to_currency(@product.price) %></span>
+  
+    <span class="price"><%= number_to_currency(@product.price) %></span>
 
-  	
+  	<div class = "change2">
     <%= form_for(@product) do |f| %>
     
-    <%= f.label :quantity %><br>
+    <%= f.label "数量" %><br>
     <%= f.text_field :quantity ,size: 1%>
-    <%= button_to 'Ok', line_items_path(product_id: @product), remote: true%>
+    <%= button_to '确认', line_items_path(product_id: @product), remote: true%>
     
     <% end %>
-  <%= button_to 'Add to Cart', line_items_path(product_id: @product),remote: true %><br/>
-  	<%= button_to 'Back', products_category_path(@product.category), method: :get%>
 
+  <%= button_to '加入购物车', line_items_path(product_id: @product),remote: true %><br/>
+  	</div>
+    <div class = "change">
+    <%= button_to '返回', products_category_path(@product.category), method: :get%>
+    </div>
   	</div>
   </div>

@@ -1,3 +1,4 @@
+
 class OrdersController < ApplicationController
   skip_before_filter :authorize, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -17,6 +18,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    data = Order.list(params[:id])
+      render json: data, layout: nil
   end
 
   # GET /orders/new
@@ -76,7 +79,7 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order

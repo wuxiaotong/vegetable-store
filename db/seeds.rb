@@ -16,6 +16,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 # encoding: utf-8
+
 Category.delete_all
 Category.create(id: 1,title: '佛冈沙拉菜系列')
 Category.create(id: 2,title: '增城中国菜系列')
