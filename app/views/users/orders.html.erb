@@ -1,0 +1,36 @@
+
+<% @orders.each do |order| %>
+<div id = "f">
+
+<p>
+  <strong>名字:</strong>
+  <%= order.name %>
+  
+  <strong>地址:</strong>
+  <%= order.address %>
+
+  <strong>联系方式:</strong>
+  <%= order.phonenumber %>
+
+  <strong>送货日期:</strong>
+  <%= order.date %>
+
+  <strong>送货时间:</strong>
+  <%= order.time %>
+
+  <strong>省份:</strong>
+  <%= order.province %>
+
+  <strong>城市:</strong>
+  <%= order.city %>
+
+  <strong>地区:</strong>
+  <%= order.district %>
+
+  <strong>详细地址:</strong>
+  <%= order.address %>
+
+  <%= button_to"订单内容",line_items_order_path(order), method: :get%>
+</p>
+</div>
+<% end %>

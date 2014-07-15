@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController 
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:line_items,:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
+  def line_items
+     @line_items = @order.line_items
+  end
   def index
     @orders = Order.paginate page: params[:page], order: 'created_at desc',
     per_page: 10
@@ -38,6 +41,11 @@ class OrdersController < ApplicationController
   def create
     params.permit!
     @order = Order.new(params[:order])
+    # @user = User.find(session[:user_id])
+    @order.user_id = session[:user_id]
+    @order.province = ChinaCity.get(params[:province])
+    @order.city = ChinaCity.get(params[:city])
+    @order.district = ChinaCity.get(params[:district])
     @order.add_line_items_from_cart(current_cart)
     respond_to do |format|
       if @order.save
@@ -82,6 +90,8 @@ class OrdersController < ApplicationController
     def set_order
       params.permit! 
       @order = Order.find(params[:id])
+      @user = @order.user
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

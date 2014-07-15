@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize
   skip_before_filter :verify_authenticity_token
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:orders,:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
+  
   def orders
     @orders = @user.orders
   end
+  
   def index
     @users = User.order(:name)
 
@@ -82,14 +84,15 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      params.permit!
       @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password_digest)
+      params.require(:user).permit(:id,:name, :password_digest)
     end
 end

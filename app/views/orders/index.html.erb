@@ -4,9 +4,16 @@
   <thead>
     <tr>
       <th>名字</th>
-      <th>地址</th>
+      
+      <th>联系方式</th>
+       <th></th>
+      <th>送货日期</th>
+      <th></th>
+      <th></th>
+      <th>送货时间</th>
      <!--  <th>Email</th>
       <th>Pay type</th> -->
+      <th>user</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,9 +24,13 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.name %></td>
-        <td><%= order.address %></td>
-        <td><%= order.email %></td>
-        <td><%= order.pay_type %></td>
+        <td><%= order.phonenumber %></td>
+        <td></td>
+        <td><%= order.date %></td>
+        <td></td>
+        <td></td>
+        <td><%= order.time %></td>
+        <td><%= order.user_id %></td>
         <td><%= link_to '查看详情', order %></td>
         <td><%= link_to '编辑', edit_order_path(order) %></td>
         <td><%= link_to '删除', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
