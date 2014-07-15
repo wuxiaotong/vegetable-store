@@ -19,6 +19,11 @@ Depot::Application.routes.draw do
       get :products
     end
   end
+ resources :users do
+    member do
+      get :orders
+    end
+  end
 
   get '/categories/:category_id/products/:id', to: 'store#product_info'
 

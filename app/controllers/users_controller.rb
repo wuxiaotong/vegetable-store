@@ -5,6 +5,9 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  def orders
+    @orders = @user.orders
+  end
   def index
     @users = User.order(:name)
 
@@ -17,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+     @user = User.find(params[:id])
   end
 
   # GET /users/new

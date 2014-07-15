@@ -1,6 +1,4 @@
-
-class OrdersController < ApplicationController
-  skip_before_filter :authorize, only: [:new, :create]
+class OrdersController < ApplicationController 
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
@@ -18,8 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    data = Order.list(params[:id])
-      render json: data, layout: nil
+  
   end
 
   # GET /orders/new
@@ -39,7 +36,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    params.permit!  
+    params.permit!
     @order = Order.new(params[:order])
     @order.add_line_items_from_cart(current_cart)
     respond_to do |format|
@@ -83,11 +80,12 @@ class OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
+      params.permit! 
       @order = Order.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:phonenumber,:name, :address, :email, :pay_type,:province,:ciy,:district)
     end
 end

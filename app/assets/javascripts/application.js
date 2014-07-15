@@ -16,3 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require 'china_city/jquery.china_city'
+// select
+//= require district_cn_selector/jquery.district
+// select-ul
+//= require district_cn_selector/jquery.district-ul

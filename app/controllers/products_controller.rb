@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_filter :authorize
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :init
   # GET /products
@@ -81,3 +82,4 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 end
+ 

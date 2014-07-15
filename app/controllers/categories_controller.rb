@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_filter :authorize
   before_action :set_category, only: [:show, :edit, :update, :destroy, :products]
   before_action :init
   # GET /products

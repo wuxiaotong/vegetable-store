@@ -1,24 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名字:</strong>
   <%= @order.name %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>地址:</strong>
   <%= @order.address %>
 </p>
-
 <p>
+  <strong>联系方式:</strong>
+  <%= @order.phonenumber %>
+</p>
+<p>
+  <strong>省份:</strong>
+  <%= @order.province %>
+</p>
+<p>
+  <strong>城市:</strong>
+  <%= @order.city %>
+</p>
+<p>
+  <strong>地区:</strong>
+  <%= @order.district %>
+</p>
+<p>
+  <strong>详细地址:</strong>
+  <%= @order.address %>
+</p>
+<!-- <p>
   <strong>Email:</strong>
   <%= @order.email %>
-</p>
+</p> -->
 
-<p>
+<!-- <p>
   <strong>Pay type:</strong>
   <%= @order.pay_type %>
-</p>
+</p> -->
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to '编辑', edit_order_path(@order) %> |
+<%= link_to '返回', orders_path %>
